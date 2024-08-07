@@ -835,8 +835,7 @@ MonoBehaviour:
   TabStyle:
     m_Name: window
     m_Normal:
-      m_Background: {fileID: 3030029797350296259, guid: 0000000000000000d000000000000000,
-        type: 0}
+      m_Background: {fileID: 3030029797350296259, guid: 0000000000000000d000000000000000, type: 0}
       m_ScaledBackgrounds:
       - {fileID: -7783218991985073443, guid: 0000000000000000d000000000000000, type: 0}
       m_TextColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
@@ -853,8 +852,7 @@ MonoBehaviour:
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 8058632875595140008, guid: 0000000000000000d000000000000000,
-        type: 0}
+      m_Background: {fileID: 8058632875595140008, guid: 0000000000000000d000000000000000, type: 0}
       m_ScaledBackgrounds:
       - {fileID: 5918955158733009358, guid: 0000000000000000d000000000000000, type: 0}
       m_TextColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
@@ -1039,7 +1037,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  ShowStartupWindow: 1
+  ShowStartupWindow: 0
   LastVersion: 0.0
   LimitationRange:
     position: {x: 55.97266, y: -18.20076, z: 5.7097964}
@@ -1100,7 +1098,7 @@ MonoBehaviour:
   StaticObjectsLayer: 0
   AlignStrength: 1
   ExtraDragForRotationMode: 100
-  GravityStrength: {x: -1.4227869e-10, y: -9.777317, z: -0.0000011655471}
+  GravityStrength: {x: -1.4227866e-10, y: -9.777315, z: -0.0000011655469}
   LimitBodyVelocityInGravityMode: 0
   SetGravityInDirectionOfMouse: 0
   PausePositionReajustment: 1

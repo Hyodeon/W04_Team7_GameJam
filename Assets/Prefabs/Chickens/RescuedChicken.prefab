@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 6564217689743549994}
   - component: {fileID: 1064567048915942175}
   - component: {fileID: 3131212905107468414}
+  - component: {fileID: -6650883036613284351}
   m_Layer: 0
   m_Name: RescuedChicken
   m_TagString: Untagged
@@ -372,6 +373,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.7, z: 1}
   m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!114 &-6650883036613284351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899404141810702794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f034203183f35a488875dd5ba733c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FollowObject: {fileID: 0}
+  AttackObject: {fileID: 0}
+  jumpForce: 5
+  attackForce: 20
 --- !u!1 &6515267165985950685
 GameObject:
   m_ObjectHideFlags: 0

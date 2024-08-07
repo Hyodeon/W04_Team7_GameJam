@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 3357199819967031707}
   - component: {fileID: 8161768653992642557}
   - component: {fileID: 575671513097202789}
+  - component: {fileID: 1688829561960056473}
   m_Layer: 0
   m_Name: PlayerChicken
   m_TagString: Untagged
@@ -455,3 +456,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.7, z: 1}
   m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!114 &1688829561960056473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459978836806935187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cc6fb0cc720924f92fed3f7e1bc867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 5
+  _turnSpeed: 180
