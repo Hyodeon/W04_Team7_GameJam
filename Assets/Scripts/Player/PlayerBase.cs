@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,29 +15,16 @@ public class PlayerBase : MonoBehaviour
 
     private Vector3 _followPoint;
 
-    private FollowCamera _followCamera;
+    public FollowCamera _followCamera;
+
+    public int ChickCount { get { return _followerList.Count; } }
 
     public Vector3 FollowPoint { get { return _followPoint; } }
-    
 
     private void Awake()
     {
         _followerList = new HashSet<GameObject>();
 
-        //_followCamera = Camera.main.GetComponentCinemachine
-
-        if (_followCamera == null)
-        {
-            Debug.Log("¾Ó´ë");
-        }
-
-        Follower[] allObjectsWithMyComponent = FindObjectsOfType<Follower>();
-
-        foreach (Follower fo in allObjectsWithMyComponent)
-        {
-            Debug.Log("Follower ¹ß°ß!");
-            _followerList.Add(fo.gameObject);
-        }
     }
 
     private void Update()
@@ -44,21 +32,16 @@ public class PlayerBase : MonoBehaviour
         RefreshFollowPoint();
     }
 
-    private void LocateFollowers()
-    {
-        
-    }
-
     public void AddFollower(GameObject go)
     {
         _followerList.Add(go);
-        Camera.main.gameObject.GetComponent<FollowCamera>().AddFollower();
+        _followCamera.AddFollower();
     }
 
     public void DeleteObejctFromList(GameObject go)
     {
         _followerList.Remove(go);
-        Camera.main.GetComponent<FollowCamera>().DeleteFollower();
+        _followCamera.DeleteFollower();
     }
 
     public void RefreshFollowPoint()
@@ -82,7 +65,7 @@ public class PlayerBase : MonoBehaviour
 
     private IEnumerator DoJump(GameObject follower, float distance)
     {
-        if (distance < 10)
+        if (distance < 50)
         {
             Follower foComp = follower.GetComponent<Follower>();
 
@@ -90,6 +73,14 @@ public class PlayerBase : MonoBehaviour
 
             foComp.TriggerState(Follower.State.Jump);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (other.CompareTag("Trap"))
+        //{
+
+        //}
     }
 }
 

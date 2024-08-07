@@ -27,22 +27,31 @@ public class Follower : MonoBehaviour
     [Header("FeetPosition")]
     [SerializeField] private Vector3 _feetOffset;
 
+    [Header("Animator Field")]
+    [SerializeField] private Animator _animator;
+
     #endregion
 
     #region 지역 변수
 
+    // 상태 저장
     private State _currentState;
     private State _prevState;
 
+    // 레이어 마스크
     private LayerMask _groundLayer;
 
+    // 이동 관련 변수
     private Vector3 _target;
     private float _speed;
 
+    // 상태 Boolean
     private bool _isFollwing;
     private bool _isAttack;
     private bool _isJumping;
     private bool _isStateTransition;
+
+    // 상태 Action
     private Dictionary<State, Action<bool>> _stateHandler;
 
     // Rotation 변수
@@ -51,14 +60,17 @@ public class Follower : MonoBehaviour
 
     // Patrol 변수
     private float _elapsedTime;
-    private float delay;
+    private float _delay;
     private bool _isPatrolling;
 
-    // Component
+    // Components
     private Rigidbody _rb;
 
     // Objects
     private GameObject _player;
+
+    // Detection Mode
+    private bool _isFreeDetection;
 
     #endregion
 
@@ -95,6 +107,11 @@ public class Follower : MonoBehaviour
         _isJumping = false;
         _isStateTransition = true;
         _isPatrolling = false;
+        _isFreeDetection = false;
+
+        _speed = 1f;
+        _radius = 0f;
+        _angle = 0f;
 
         _groundLayer = LayerMask.GetMask("Ground");
 
@@ -117,23 +134,23 @@ public class Follower : MonoBehaviour
 
     #endregion
 
-    private void Update()
+    private void FixedUpdate()
     {
         // 상태 핸들러에 등록된 액션 수행
         if (_stateHandler.TryGetValue(_currentState, out var action))
         {
             action(_isStateTransition);
-            _isStateTransition = false;
         }
     }
 
     private void Idle(bool isTransition)
     {
+
         Vector3 distVector = _player.transform.position - transform.position;
 
-        if (distVector.magnitude < 8f)
+        if (distVector.magnitude < 20f)
         {
-            _player.GetComponent<PlayerBase>().AddFollower(gameObject);     
+            _player.GetComponent<PlayerBase>().AddFollower(gameObject);
             TriggerState(State.Follow);
         }
     }
@@ -144,6 +161,7 @@ public class Follower : MonoBehaviour
         {
             _speed = 12f;
             _elapsedTime = 0f;
+            _isStateTransition = false;
         }
 
         if (_elapsedTime > 2f && !_isPatrolling)
@@ -166,8 +184,6 @@ public class Follower : MonoBehaviour
         while(eTime < duration)
         {
             eTime += Time.deltaTime;
-
-            //_rb.AddForce(dir * _speed);
             transform.position += dir * Time.deltaTime * _speed;
             yield return null;
         }
@@ -186,6 +202,7 @@ public class Follower : MonoBehaviour
             _angle = 0f;
             _speed = 6f;
             _radius = 1.5f;
+            _isStateTransition = false;
         }
 
         _angle += _speed * Time.deltaTime;
@@ -203,14 +220,17 @@ public class Follower : MonoBehaviour
     {
         if (isTransition)
         {
-            _speed = 5f;
+            _speed = 8f;
+            _isStateTransition = false;
         }
 
+        _animator.SetInteger(AnimationSettings.Walk, 1);
 
         _target = _player.GetComponent<PlayerBase>().FollowPoint;
 
-        if ((transform.position - _target).magnitude >= 20)
+        if ((transform.position - _player.transform.position).magnitude >= 50)
         {
+            Debug.Log("Delete");
             _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
             TriggerState(State.Idle);
         }
@@ -222,15 +242,27 @@ public class Follower : MonoBehaviour
         playerVector.y = 0f;
         transform.rotation = Quaternion.LookRotation(playerVector);
 
+        if (_rb.velocity.magnitude < 2f)
+        {
+            _animator.SetInteger(AnimationSettings.Walk, 0);
+        }
+
         if (directionVector.magnitude > 1f)
+        {
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
+        }
+        
     }
 
     private void Attack(bool isTransition)
     {
-        throw new NotImplementedException();
-        // TODO: Implement
-
+        if (isTransition)
+        {
+            // 타겟 새로 설정할 필요 있음
+            attackTarget = _player.gameObject;
+            StartCoroutine(AttackTarget());
+            _isStateTransition = false;
+        }
     }
 
     private void Jump(bool isTransition)
@@ -241,6 +273,7 @@ public class Follower : MonoBehaviour
     private IEnumerator DoJump()
     {
         _isJumping = true;
+        _animator.SetTrigger(AnimationSettings.Jump);
 
         _rb.AddForce(Vector3.up * 12f, ForceMode.Impulse);
 
@@ -258,11 +291,11 @@ public class Follower : MonoBehaviour
 
     public void TriggerState(State st)
     {
-        if (_prevState != st)
-        {
-            _isStateTransition = true;
-        }
+        Debug.Log($"State To {st}");
 
+        _animator.SetInteger(AnimationSettings.Walk, 0);
+
+        _isStateTransition = true;
         _prevState = _currentState;
         _currentState = st;
 
@@ -270,6 +303,8 @@ public class Follower : MonoBehaviour
 
     IEnumerator AttackTarget()
     {
+        Debug.Log("공격!");
+
         _isAttack = true;
         Vector3 distance = attackTarget.transform.position - transform.position;
 
@@ -286,6 +321,7 @@ public class Follower : MonoBehaviour
             distance = attackTarget.transform.position - transform.position;
             yield return null;
         }
+
         _rb.AddForce(distance.normalized * nextAttackForce, ForceMode.Impulse);
         _rb.AddForce(Vector3.up * nextJumpForce, ForceMode.Impulse);
 
@@ -323,7 +359,7 @@ public class Follower : MonoBehaviour
 
 
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(this.transform.position + _feetOffset, 0.25f);
+            Gizmos.DrawWireSphere(transform.position + _feetOffset, 0.25f);
         }
     }
 
@@ -342,6 +378,13 @@ public class Follower : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Trap"))
+        {
+            _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+        }
+    }
 }
 
 
