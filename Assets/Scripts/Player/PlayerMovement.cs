@@ -71,6 +71,7 @@ public class PlayerMovement : BaseBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _onGround)
         {
+
             _movementParticle.SetActive(false);
             _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
 
