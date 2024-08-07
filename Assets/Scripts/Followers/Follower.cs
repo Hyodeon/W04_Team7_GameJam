@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Random = UnityEngine.Random;
 
 public class Follower : MonoBehaviour
@@ -21,7 +19,7 @@ public class Follower : MonoBehaviour
     public GameObject attackTarget;
 
     [Header("Jump")]
-    public float jumpForce = 5f; // 점프 힘을 조절할 수 있는 변수
+    public float _jumpForce = 5f; // 점프 힘을 조절할 수 있는 변수
 
     [Header("Attack")]
     public float attackForce = 20f; // 공격 힘을 조절할 수 있는 변수
@@ -42,7 +40,6 @@ public class Follower : MonoBehaviour
 
     // 레이어 마스크
     private LayerMask _groundLayer;
-    private LayerMask _objectLayer;
 
     // 이동 관련 변수
     private Vector3 _target;
@@ -98,6 +95,7 @@ public class Follower : MonoBehaviour
     private void Awake()
     {
         Initialize();
+        _player = GameObject.FindWithTag("Player");
     }
 
     private void Initialize()
@@ -116,8 +114,7 @@ public class Follower : MonoBehaviour
         _radius = 0f;
         _angle = 0f;
 
-        _groundLayer = LayerMask.GetMask("Ground");
-        _objectLayer = LayerMask.GetMask("FixedObject");
+        _groundLayer = GetCombinedLayerMask();
 
         // 상태 핸들러에 액션 등록
         _stateHandler = new Dictionary<State, Action<bool>>()
@@ -149,6 +146,8 @@ public class Follower : MonoBehaviour
 
     private void Idle(bool isTransition)
     {
+        if (_player == null)
+            return;
 
         Vector3 distVector = _player.transform.position - transform.position;
 
@@ -185,7 +184,7 @@ public class Follower : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(dir);
 
-        while(eTime < duration)
+        while (eTime < duration)
         {
             eTime += Time.deltaTime;
             transform.position += dir * Time.deltaTime * _speed;
@@ -222,6 +221,9 @@ public class Follower : MonoBehaviour
 
     private void Follow(bool isTransition)
     {
+
+        if (_player == null)
+            return;
         if (isTransition)
         {
             _speed = 8f;
@@ -255,7 +257,7 @@ public class Follower : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         }
-        
+
     }
 
     private void Attack(bool isTransition)
@@ -279,12 +281,16 @@ public class Follower : MonoBehaviour
         _isJumping = true;
         _animator.SetTrigger(AnimationSettings.Jump);
 
-        _rb.AddForce(Vector3.up * 12f, ForceMode.Impulse);
+        _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.2f);
 
         while (true)
         {
-            yield return null;
 
+            yield return null;
+            if (_player == null)
+                break;
+            transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, 10f * Time.deltaTime);
             if (IsGrounded()) break;
         }
 
@@ -313,7 +319,7 @@ public class Follower : MonoBehaviour
         Vector3 distance = attackTarget.transform.position - transform.position;
 
         float nextAttackForce = attackForce * Random.Range(0.5f, 2f);
-        float nextJumpForce = jumpForce * Random.Range(1, 3f);
+        float nextJumpForce = _jumpForce * Random.Range(1, 3f);
 
         float randDistance = Random.Range(5f, 10f);
 
@@ -337,10 +343,14 @@ public class Follower : MonoBehaviour
         _isAttack = false;
     }
 
+    private LayerMask GetCombinedLayerMask()
+    {
+        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject"));
+    }
     private bool IsGrounded()
     {
         // 바닥에 착지 여부를 판단하는 함수
-        return Physics.CheckSphere(transform.position + _feetOffset, 0.25f, GetCombinedLayerMask());
+        return Physics.CheckSphere(transform.position + _feetOffset, 0.25f, _groundLayer);
     }
 
     void OnDrawGizmos()
@@ -386,21 +396,18 @@ public class Follower : MonoBehaviour
     {
         if (other.CompareTag("Trap"))
         {
-            _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
-
+            StopAllCoroutines();
+            if (_player != null)
+                _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
             // 파티클 뿌리기
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/ChickDestroyedParticle");
-
             Instantiate(prefab, transform.position, Quaternion.identity);
-
             Destroy(gameObject);
         }
     }
 
-    private LayerMask GetCombinedLayerMask()
-    {
-        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject"));
-    }
+
+
 }
 
 

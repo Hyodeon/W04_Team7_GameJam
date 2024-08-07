@@ -1,14 +1,17 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-
-
-
-[RequireComponent(typeof(GameSceneEvents))]
 public class GameSceneManager : BaseBehaviour
 {
     public static GameSceneManager Instance;
-    public GameSceneEvents EventGameScene;
 
+    public PlayerBase Player;
+    public TextMeshProUGUI ChickText;
+    public Slider TimeSlider;
+    public int CagesCount = 0;
+    public float CurTime = 0;
+    public float TargetTime = 90;
 
     protected override void Initialize()
     {
@@ -20,26 +23,26 @@ public class GameSceneManager : BaseBehaviour
         Instance = this;
     }
 
-    private void OnEnable()
+    public int GetCagesCount()
     {
-        EventGameScene.OnGameOver += Event_GameOver;
+        return FindObjectsOfType<Cage>().Length;
     }
 
-    private void OnDisable()
+    private void Update()
     {
-        EventGameScene.OnGameOver -= Event_GameOver;
+        CurTime += Time.deltaTime;
+        ChickText.text = "X " + Player.ChickCount.ToString();
+        TimeSlider.value = CurTime / TargetTime;
+        if (CurTime >= TargetTime)
+        {
+            EndGame();
+        }
     }
 
-
-
-    private void Event_GameOver(GameSceneEvents gameSceneEvents, GameOverEventArgs gameOverEventArgs)
+    private void EndGame()
     {
-
+        Ending.Instance.ShowEnding((int)EEndingList.Dinner);
     }
-
-
-
-
 
 
 
@@ -48,7 +51,6 @@ public class GameSceneManager : BaseBehaviour
     protected override void OnBindField()
     {
         base.OnBindField();
-        EventGameScene = GetComponent<GameSceneEvents>();
 
     }
 

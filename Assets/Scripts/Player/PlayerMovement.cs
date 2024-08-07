@@ -17,13 +17,18 @@ public class PlayerMovement : BaseBehaviour
 
     [Header("Animation Settings")]
     [SerializeField] private Animator _animator;
-
+    [Header("ground check")]
+    [SerializeField] private Vector3 _feetOffset;
     [Header("Particles")]
     [SerializeField] private GameObject _movementParticle;
+
+        // 레이어 마스크
+    private LayerMask _groundLayer;
 
     protected override void Initialize()
     {
         base.Initialize();
+        _groundLayer = GetCombinedLayerMask();
     }
 
     void FixedUpdate()
@@ -67,7 +72,7 @@ public class PlayerMovement : BaseBehaviour
 
     void ChickenJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
 
             _movementParticle.SetActive(false);
@@ -79,21 +84,20 @@ public class PlayerMovement : BaseBehaviour
         }
     }
 
-    void ChickenGlide() //Test
+
+    private LayerMask GetCombinedLayerMask()
     {
-        _rb.velocity = new Vector3(_rb.velocity.x, -1f, _rb.velocity.z);
+        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject"));
+    }
+    
+
+    private bool IsGrounded()
+    {
+        // 바닥에 착지 여부를 판단하는 함수
+        return Physics.CheckSphere(transform.position + _feetOffset, 0.25f, _groundLayer);
     }
 
-    private void OnCollisionStay(Collision other)
-    {
-        _onGround = true;
-    }
 
-    private void OnCollisionExit(Collision other)
-    {
-        _onGround = false;
-        _movementParticle.SetActive(false);
-    }
 
 
 

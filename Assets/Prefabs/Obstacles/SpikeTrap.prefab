@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2803869026328728447}
   - component: {fileID: 1736120525334910063}
   - component: {fileID: 3683767452187652941}
-  - component: {fileID: 2368763531185680192}
+  - component: {fileID: 5932703959642361161}
   m_Layer: 0
   m_Name: SpearD (7)
   m_TagString: Trap
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2368763531185680192
+--- !u!65 &5932703959642361161
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 3936759867869662909}
   - component: {fileID: 9184016325904820546}
   - component: {fileID: 6558915784351189404}
-  - component: {fileID: 5061522159416370222}
+  - component: {fileID: 7947842092886129441}
   m_Layer: 0
   m_Name: SpearD (5)
   m_TagString: Trap
@@ -318,7 +318,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5061522159416370222
+--- !u!65 &7947842092886129441
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 1559204153467999550}
   - component: {fileID: 8178566379289256498}
   - component: {fileID: 5723936314598036214}
-  - component: {fileID: 3820941503718536258}
+  - component: {fileID: 8748038752668541292}
   m_Layer: 0
   m_Name: SpearD (4)
   m_TagString: Trap
@@ -423,7 +423,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3820941503718536258
+--- !u!65 &8748038752668541292
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 3849878127204994692}
   - component: {fileID: 5443085732865774151}
   - component: {fileID: 8997319837430950409}
-  - component: {fileID: 2155767334536547268}
+  - component: {fileID: 5432643798369486917}
   m_Layer: 0
   m_Name: SpearD (2)
   m_TagString: Trap
@@ -528,7 +528,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2155767334536547268
+--- !u!65 &5432643798369486917
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 4129388413327525297}
   - component: {fileID: 1663714041973766812}
   - component: {fileID: 8243957950459908642}
-  - component: {fileID: 7817486108504964444}
+  - component: {fileID: 7725936043225773564}
   m_Layer: 0
   m_Name: SpearD
   m_TagString: Trap
@@ -633,7 +633,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7817486108504964444
+--- !u!65 &7725936043225773564
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 1706358338240604797}
   - component: {fileID: 3005016440587389379}
   - component: {fileID: 7763497066547703035}
-  - component: {fileID: 1414817346052078282}
+  - component: {fileID: 598364674883234027}
   m_Layer: 0
   m_Name: SpearD (8)
   m_TagString: Trap
@@ -738,7 +738,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1414817346052078282
+--- !u!65 &598364674883234027
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 7246079057776800742}
   - component: {fileID: 7473366422016585941}
   - component: {fileID: 5856699238372361440}
-  - component: {fileID: 4499530494140627469}
+  - component: {fileID: 7371478901737287461}
   m_Layer: 0
   m_Name: SpearD (6)
   m_TagString: Trap
@@ -843,7 +843,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4499530494140627469
+--- !u!65 &7371478901737287461
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 6945774775462806204}
   - component: {fileID: 8194171885213413322}
   - component: {fileID: 8957457093066599251}
-  - component: {fileID: 7228777288856290865}
+  - component: {fileID: 3504955122250385000}
   m_Layer: 0
   m_Name: SpearD (3)
   m_TagString: Trap
@@ -948,7 +948,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7228777288856290865
+--- !u!65 &3504955122250385000
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 1684057890478130161}
   - component: {fileID: 5926917836687924366}
   - component: {fileID: 3226406420707429097}
-  - component: {fileID: 7819158062865856360}
+  - component: {fileID: 4824594826734922259}
   m_Layer: 0
   m_Name: SpearD (1)
   m_TagString: Trap
@@ -1053,7 +1053,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7819158062865856360
+--- !u!65 &4824594826734922259
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

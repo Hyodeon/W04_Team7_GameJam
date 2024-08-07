@@ -153,9 +153,10 @@ GameObject:
   - component: {fileID: 3822226120313513181}
   - component: {fileID: 1233754107242750402}
   - component: {fileID: 6947025829639340341}
+  - component: {fileID: 1523715903996434108}
   m_Layer: 12
   m_Name: PlayerChicken
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,11 +218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cc6fb0cc720924f92fed3f7e1bc867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _turnSpeed: 180
+  _moveSpeed: 7
+  _turnSpeed: 100
   _rb: {fileID: 8157459600780764454}
-  _jumpPower: 12
+  _jumpPower: 16
   _animator: {fileID: 8147610478742922643}
+  _feetOffset: {x: 0, y: -0.9, z: 0}
   _movementParticle: {fileID: 5039789264982639089}
 --- !u!136 &1233754107242750402
 CapsuleCollider:
@@ -262,6 +264,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 5120
   _camera: {fileID: 0}
+--- !u!114 &1523715903996434108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360160872019690725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a11d5261423a34a90ae7ae6c126229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followCamera: {fileID: 0}
 --- !u!1 &6733978798561550294
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +411,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5.56
+  m_Radius: 4.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7552828769683065691
 GameObject:
