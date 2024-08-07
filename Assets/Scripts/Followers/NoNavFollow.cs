@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoNavFollow : MonoBehaviour
 {
+    [SerializeField]private Animator _animator;
     [SerializeField]private Transform FollowObject;
     [SerializeField]private GameObject AttackObject;
     private Rigidbody rb;
@@ -39,8 +40,16 @@ public class NoNavFollow : MonoBehaviour
     {
         Vector3 destination = FollowObject.transform.position;
         Vector3 distance = destination - transform.position;
+        transform.LookAt(destination);
         if(distance.magnitude > 4f)
-            transform.position = Vector3.MoveTowards(transform.position, destination, 5f * Time.deltaTime);
+        {
+            transform.position = Vector3.MoveTowards(transform.position, destination, 10f * Time.deltaTime);
+            _animator.SetInteger("Walk", 1);
+        }
+        else
+        {
+            _animator.SetInteger("Walk", 0);
+        }
     }
 
     IEnumerator AttackTarget()

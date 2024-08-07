@@ -7,6 +7,7 @@ public class PlayerMovement : BaseBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _turnSpeed = 180f;
+    [SerializeField] private float _jumpPower = 5f;
     [SerializeField] private Rigidbody _rb;
     private bool _onGround = true;
 
@@ -50,7 +51,7 @@ public class PlayerMovement : BaseBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _onGround)
         {
-            _rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
             _animator.SetTrigger(AnimationSettings.Jump);
         }
 
