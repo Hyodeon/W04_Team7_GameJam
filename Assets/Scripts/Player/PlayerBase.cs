@@ -1,9 +1,6 @@
-using Cinemachine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 /// <summary>
 /// <para>플레이어의 정보 저장</para>
@@ -86,10 +83,11 @@ public class PlayerBase : MonoBehaviour
             // 파티클 뿌리기
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
             Instantiate(prefab, transform.position, Quaternion.identity);
+            Ending.Instance.ShowEnding((int)EEndingList.Death);
             Destroy(gameObject);
         }
     }
- 
+
 }
 
 
