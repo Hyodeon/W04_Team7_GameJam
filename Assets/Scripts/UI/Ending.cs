@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Ending : MonoBehaviour
@@ -19,8 +20,12 @@ public class Ending : MonoBehaviour
     [Header("Ending Infomation")]
     [SerializeField]
     private Image _gameEndingImg;
+    [SerializeField]
+    private Image _fadeImage;
 
-
+    [SerializeField] private float _fadeTime = 1;
+    [SerializeField] private Button _homeButton;
+    [SerializeField] private GameObject _endGob;
     private void Awake()
     {
         if (Instance != null)
@@ -31,6 +36,8 @@ public class Ending : MonoBehaviour
 
 
         Initialize();
+        if (_homeButton != null)
+            _homeButton.onClick.AddListener(GoHome);
     }
 
 
@@ -41,10 +48,35 @@ public class Ending : MonoBehaviour
     public void ShowEnding(int num)
     {
         if (_gameEndingImg == null) return;
-        _gameEndingImg.sprite = _endingImages[num];
-        _gameEndingImg.gameObject.SetActive(true);
-        SaveEnding(num);
         Time.timeScale = 0;
+
+        _gameEndingImg.sprite = _endingImages[num];
+        SaveEnding(num);
+        StartCoroutine(FadeEffect());
+    }
+
+    private void GoHome()
+    {
+        SceneManager.LoadScene("TitleScene");
+        Time.timeScale = 1;
+
+    }
+    private IEnumerator FadeEffect()
+    {
+        float time = 0;
+        Color targetColor = new Color(0, 0, 0, 1);
+        Color curColor = _fadeImage.color;
+        while (time < _fadeTime)
+        {
+            _fadeImage.color = Color.Lerp(curColor, targetColor, time / _fadeTime);
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        _fadeImage.color = targetColor;
+        yield return new WaitForSecondsRealtime(1f);
+        _endGob.SetActive(true);
+
+
     }
 
     public void ShowEndingList()
