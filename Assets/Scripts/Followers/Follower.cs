@@ -96,6 +96,7 @@ public class Follower : MonoBehaviour
     private void Awake()
     {
         Initialize();
+        _player = GameObject.FindWithTag("Player");
     }
 
     private void Initialize()
@@ -182,7 +183,7 @@ public class Follower : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(dir);
 
-        while(eTime < duration)
+        while (eTime < duration)
         {
             eTime += Time.deltaTime;
             transform.position += dir * Time.deltaTime * _speed;
@@ -252,7 +253,7 @@ public class Follower : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         }
-        
+
     }
 
     private void Attack(bool isTransition)
