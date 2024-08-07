@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField]private float moveSpeed = 5f;
-    [SerializeField]private float turnSpeed = 180f;
-    private Rigidbody rb;
-    private bool onGround = true;
+    [SerializeField]private float _moveSpeed = 5f;
+    [SerializeField]private float _turnSpeed = 180f;
+    private Rigidbody _rb;
+    private bool _onGround = true;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
     void FixedUpdate()
     {
@@ -25,40 +25,40 @@ public class PlayerMovement : MonoBehaviour
 
     void TankMove() // WS:Move, AD:Turn
     {
-        float move = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        float turn = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
+        float move = Input.GetAxis("Vertical") * _moveSpeed * Time.deltaTime;
+        float turn = Input.GetAxis("Horizontal") * _turnSpeed * Time.deltaTime;
 
         Vector3 newVelocity = transform.forward * move * 100;
-        newVelocity.y = rb.velocity.y;
-        rb.velocity = newVelocity;
+        newVelocity.y = _rb.velocity.y;
+        _rb.velocity = newVelocity;
 
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        rb.MoveRotation(rb.rotation * turnRotation);
+        _rb.MoveRotation(_rb.rotation * turnRotation);
     }
 
     void ChickenJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && _onGround)
         {
-            rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
 
-        if(Input.GetKey(KeyCode.Space) && rb.velocity.y < 0)
+        if(Input.GetKey(KeyCode.Space) && _rb.velocity.y < 0)
         {
-            ChikenGlide(); //Test
+            ChickenGlide(); //Test
         }
     }
     
-    void ChikenGlide() //Test
+    void ChickenGlide() //Test
     {
-        rb.velocity = new Vector3(rb.velocity.x, -1f, rb.velocity.z);
+        _rb.velocity = new Vector3(_rb.velocity.x, -1f, _rb.velocity.z);
     }
 
     void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            onGround = true;
+            _onGround = true;
         }
     }
 
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            onGround = false;
+            _onGround = false;
         }
     }
 

@@ -13,8 +13,8 @@ public class Follower : MonoBehaviour
     public Transform FollowObject;
     [Header("Attack to")]
     public GameObject attackTarget;
-    private Rigidbody rb;
-    private bool isAttack = false;
+    private Rigidbody _rb;
+    private bool _isAttack = false;
     [Header("Jump")]
     public float jumpForce = 5f; // 점프 힘을 조절할 수 있는 변수
     [Header("Attack")]
@@ -29,12 +29,12 @@ public class Follower : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        if (!isAttack)
+        if (!_isAttack)
         {
             FollowPlayer();
         }
@@ -50,7 +50,7 @@ public class Follower : MonoBehaviour
         if(forceMode == Mode.NavMesh)
         {
             _agent.enabled = true;
-            rb.isKinematic = true;
+            _rb.isKinematic = true;
             Vector3 destination = player.transform.position - player.transform.forward * 2f;
             _agent.destination = destination;
             _agent.speed = 5f;
@@ -60,7 +60,7 @@ public class Follower : MonoBehaviour
         else if(forceMode == Mode.MoveTowards)
         {
             _agent.enabled = false;
-            rb.isKinematic = false;
+            _rb.isKinematic = false;
             Vector3 destination = FollowObject.transform.position;
             Vector3 distance = destination - transform.position;
             if(distance.magnitude > 2f)
@@ -72,7 +72,7 @@ public class Follower : MonoBehaviour
     {
         if(forceMode == Mode.NavMesh)
         {
-            isAttack = true;
+            _isAttack = true;
 
             _agent.destination = attackTarget.transform.position;
             _agent.speed = 10f;
@@ -85,16 +85,16 @@ public class Follower : MonoBehaviour
 
             //to AddForce, navmeshagent should be disabled and rigidbody should be enabled
             _agent.enabled = false;
-            rb.isKinematic = false;
+            _rb.isKinematic = false;
 
 
             //Randomize Chicken
             jumpForce *= Random.Range(0.5f, 1.5f);
             attackForce *= Random.Range(0.5f, 1.5f);
 
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             Vector3 direction = attackTarget.transform.position - transform.position;
-            rb.AddForce(direction.normalized * attackForce, ForceMode.Impulse);
+            _rb.AddForce(direction.normalized * attackForce, ForceMode.Impulse);
 
             while (!IsGrounded())
             {
@@ -103,13 +103,13 @@ public class Follower : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             //end of attack
-            rb.isKinematic = true;
-            isAttack = false;
+            _rb.isKinematic = true;
+            _isAttack = false;
             _agent.enabled = true;
         }
         else if(forceMode == Mode.MoveTowards)
         {
-            isAttack = true;
+            _isAttack = true;
             Vector3 distance = attackTarget.transform.position - transform.position;
 
             float nextAttackForce = attackForce * Random.Range(0.5f, 2f);
@@ -123,15 +123,15 @@ public class Follower : MonoBehaviour
                 distance = attackTarget.transform.position - transform.position;
                 yield return null;
             }
-            rb.AddForce(distance.normalized * nextAttackForce, ForceMode.Impulse);
-            rb.AddForce(Vector3.up * nextJumpForce, ForceMode.Impulse);
+            _rb.AddForce(distance.normalized * nextAttackForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * nextJumpForce, ForceMode.Impulse);
 
             while(!IsGrounded())
             {
                 yield return null;
             }
             yield return new WaitForSeconds(2f);
-            isAttack = false;
+            _isAttack = false;
         }
     }
 
