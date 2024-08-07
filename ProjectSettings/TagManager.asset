@@ -16,13 +16,13 @@ TagManager:
   - Ground
   - Wall
   - 
-  - 
+  - BoxFragment
   - Cage
   - TrappedChick
+  - Player
   - 
   - 
-  - 
-  - 
+  - PlayerInteractable
   - 
   - 
   - 
