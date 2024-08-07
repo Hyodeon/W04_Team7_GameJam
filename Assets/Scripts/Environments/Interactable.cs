@@ -9,9 +9,9 @@ public class Interactable : BaseBehaviour
 
 
     [Header("Destroyed")]
-    [SerializeField] private float _scaleRatio;
-    [SerializeField] private GameObject _destroyedParticle;
-    [SerializeField] private Vector3 _offSet;
+    [SerializeField] protected float _scaleRatio;
+    [SerializeField] protected GameObject _destroyedParticle;
+    [SerializeField] protected Vector3 _offSet;
 
 
     [Header("Interactable")]
