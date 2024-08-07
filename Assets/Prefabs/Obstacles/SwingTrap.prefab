@@ -67,9 +67,10 @@ GameObject:
   - component: {fileID: 3944290487430483046}
   - component: {fileID: 2735365224042661255}
   - component: {fileID: 8039588911158404652}
+  - component: {fileID: 4887597809834912463}
   m_Layer: 0
   m_Name: Blade01D
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,6 +140,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4887597809834912463
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5071668887175537286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4518437, y: 0.70871377, z: 0.11472486}
+  m_Center: {x: 0.025738597, y: -2.6667962, z: -0.0103826}
 --- !u!1 &7469525354336001706
 GameObject:
   m_ObjectHideFlags: 0

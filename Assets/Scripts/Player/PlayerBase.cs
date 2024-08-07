@@ -77,10 +77,15 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.CompareTag("Trap"))
-        //{
+        if (other.CompareTag("Trap"))
+        {
+            // 파티클 뿌리기
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
 
-        //}
+            Instantiate(prefab, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
     }
 }
 

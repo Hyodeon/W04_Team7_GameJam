@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using Random = UnityEngine.Random;
 
 public class Follower : MonoBehaviour
@@ -41,6 +42,7 @@ public class Follower : MonoBehaviour
 
     // 레이어 마스크
     private LayerMask _groundLayer;
+    private LayerMask _objectLayer;
 
     // 이동 관련 변수
     private Vector3 _target;
@@ -115,6 +117,7 @@ public class Follower : MonoBehaviour
         _angle = 0f;
 
         _groundLayer = LayerMask.GetMask("Ground");
+        _objectLayer = LayerMask.GetMask("FixedObject");
 
         // 상태 핸들러에 액션 등록
         _stateHandler = new Dictionary<State, Action<bool>>()
@@ -337,7 +340,7 @@ public class Follower : MonoBehaviour
     private bool IsGrounded()
     {
         // 바닥에 착지 여부를 판단하는 함수
-        return Physics.CheckSphere(transform.position + _feetOffset, 0.25f, _groundLayer);
+        return Physics.CheckSphere(transform.position + _feetOffset, 0.25f, GetCombinedLayerMask());
     }
 
     void OnDrawGizmos()
@@ -384,7 +387,19 @@ public class Follower : MonoBehaviour
         if (other.CompareTag("Trap"))
         {
             _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+
+            // 파티클 뿌리기
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/ChickDestroyedParticle");
+
+            Instantiate(prefab, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
         }
+    }
+
+    private LayerMask GetCombinedLayerMask()
+    {
+        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject"));
     }
 }
 
