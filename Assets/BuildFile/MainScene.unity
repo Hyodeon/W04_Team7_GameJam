@@ -7065,7 +7065,7 @@ MonoBehaviour:
   TimeSlider: {fileID: 6593134482637161450}
   CagesCount: 0
   CurTime: 0
-  TargetTime: 10
+  TargetTime: 90
 --- !u!114 &1957945650
 MonoBehaviour:
   m_ObjectHideFlags: 0
