@@ -88,22 +88,16 @@ public class PlayerMovement : BaseBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            _onGround = true;
-        }
+        _onGround = true;
     }
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            _onGround = false;
-            _movementParticle.SetActive(false);
-        }
+        _onGround = false;
+        _movementParticle.SetActive(false);
     }
 
-  
+
 
 
 #if UNITY_EDITOR
