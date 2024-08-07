@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6591914496151156115}
   - component: {fileID: 1695384472651503437}
   - component: {fileID: 42855760268215931}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 712972402343779782}
   - component: {fileID: 2570829401872928167}
   - component: {fileID: 8244404973238682754}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6983851381362452575}
   - component: {fileID: 7671610676282198131}
   - component: {fileID: 2471404466795797826}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4735686966843740848}
   - component: {fileID: 6798852460183423784}
   - component: {fileID: 7848301930587550905}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Chick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 2078289256551385220}
   - component: {fileID: 3984205759695563373}
   - component: {fileID: 6541306050640069958}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6783450346862436145}
   - component: {fileID: 2692562716100553496}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Chick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

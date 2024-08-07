@@ -19,10 +19,10 @@ TagManager:
   - 
   - Cage
   - TrappedChick
+  - Player
   - 
   - 
-  - 
-  - 
+  - PlayerInteractable
   - 
   - 
   - 

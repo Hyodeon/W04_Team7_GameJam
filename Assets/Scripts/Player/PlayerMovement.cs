@@ -20,6 +20,9 @@ public class PlayerMovement : BaseBehaviour
 
     [Header("Particles")]
     [SerializeField] private GameObject _movementParticle;
+
+
+
     protected override void Initialize()
     {
         base.Initialize();
@@ -79,7 +82,7 @@ public class PlayerMovement : BaseBehaviour
         _rb.velocity = new Vector3(_rb.velocity.x, -1f, _rb.velocity.z);
     }
 
-    void OnCollisionStay(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
@@ -87,7 +90,7 @@ public class PlayerMovement : BaseBehaviour
         }
     }
 
-    void OnCollisionExit(Collision other)
+    private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
@@ -95,6 +98,8 @@ public class PlayerMovement : BaseBehaviour
             _movementParticle.SetActive(false);
         }
     }
+
+  
 
 
 #if UNITY_EDITOR
