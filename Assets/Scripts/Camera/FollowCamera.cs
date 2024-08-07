@@ -47,4 +47,12 @@ public class FollowCamera : MonoBehaviour
         Debug.Log(CameraWeight);
     }
 
+    public void DeleteFollower()
+    {
+        _count--;
+        CameraWeight = 1 + (float)_count / 100f;
+
+        Debug.Log(CameraWeight);
+    }
+
 }

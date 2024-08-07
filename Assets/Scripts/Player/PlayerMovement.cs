@@ -70,6 +70,9 @@ public class PlayerMovement : BaseBehaviour
         {
             _movementParticle.SetActive(false);
             _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+
+            GetComponent<PlayerBase>().PropagateJump();
+
             _animator.SetTrigger(AnimationSettings.Jump);
         }
     }
