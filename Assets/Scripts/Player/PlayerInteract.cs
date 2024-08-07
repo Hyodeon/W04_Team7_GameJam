@@ -35,7 +35,10 @@ public class PlayerInteract : BaseBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
-        col.GetComponent<Interactable>().ActivateInteractable(transform);
+        if (col.GetComponent<Interactable>() != null)
+        {
+            col.GetComponent<Interactable>().ActivateInteractable(transform);
+        }
     }
 
 
