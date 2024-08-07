@@ -278,11 +278,12 @@ public class Follower : MonoBehaviour
         _animator.SetTrigger(AnimationSettings.Jump);
 
         _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.2f);
 
         while (true)
         {
             yield return null;
-
+            transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, 10f * Time.deltaTime);
             if (IsGrounded()) break;
         }
 
