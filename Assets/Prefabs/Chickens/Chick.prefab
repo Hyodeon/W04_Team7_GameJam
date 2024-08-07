@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 4735686966843740848}
   - component: {fileID: 6798852460183423784}
   - component: {fileID: 7848301930587550905}
+  - component: {fileID: 2177226534925605075}
   m_Layer: 0
   m_Name: Chick
   m_TagString: Untagged
@@ -333,6 +334,24 @@ CapsuleCollider:
   m_Height: 1.34
   m_Direction: 1
   m_Center: {x: 0, y: -0.34, z: 0}
+--- !u!114 &2177226534925605075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104631529535085346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a420eda824e8f4bbed58d09c57fafc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FollowObject: {fileID: 0}
+  attackTarget: {fileID: 0}
+  jumpForce: 5
+  attackForce: 20
+  _feetOffset: {x: 0, y: -0.9, z: 0}
+  _animator: {fileID: 2692562716100553496}
 --- !u!1 &7584737310169783726
 GameObject:
   m_ObjectHideFlags: 0
