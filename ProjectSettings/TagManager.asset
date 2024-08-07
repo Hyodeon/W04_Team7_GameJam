@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - FxTemporaire
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -11,16 +14,16 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
+  - Wall
+  - FixedObject
+  - BoxFragment
+  - Cage
+  - TrappedChick
+  - Player
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerInteractable
   - 
   - 
   - 
