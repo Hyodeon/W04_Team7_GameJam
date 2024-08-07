@@ -23,7 +23,7 @@ public class PlayerBase : MonoBehaviour
     {
         _followerList = new HashSet<GameObject>();
 
-        _followCamera = Camera.main.GetComponentCinemachine
+        //_followCamera = Camera.main.GetComponentCinemachine
 
         if (_followCamera == null)
         {
