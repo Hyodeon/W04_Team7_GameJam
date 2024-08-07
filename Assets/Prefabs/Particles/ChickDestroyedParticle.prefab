@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4181099471876077792}
   - component: {fileID: 4347354061337031562}
   - component: {fileID: 4695906098968624458}
+  - component: {fileID: 9193575770873604930}
   m_Layer: 0
   m_Name: ChickDestroyedParticle
   m_TagString: Untagged
@@ -124,7 +125,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4932,3 +4933,16 @@ MonoBehaviour:
     shakesDelay: 0
   animatedLights: []
   fadeOutReference: {fileID: 0}
+--- !u!114 &9193575770873604930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3012481637260893381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17124386c663684a888bdf97b945d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 3
