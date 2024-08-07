@@ -21,8 +21,6 @@ public class PlayerMovement : BaseBehaviour
     [Header("Particles")]
     [SerializeField] private GameObject _movementParticle;
 
-
-
     protected override void Initialize()
     {
         base.Initialize();
