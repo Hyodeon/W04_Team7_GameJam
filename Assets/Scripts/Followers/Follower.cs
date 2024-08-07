@@ -147,6 +147,8 @@ public class Follower : MonoBehaviour
 
     private void Idle(bool isTransition)
     {
+        if (_player == null)
+            return;
 
         Vector3 distVector = _player.transform.position - transform.position;
 
@@ -220,6 +222,9 @@ public class Follower : MonoBehaviour
 
     private void Follow(bool isTransition)
     {
+
+        if (_player == null)
+            return;
         if (isTransition)
         {
             _speed = 8f;
@@ -282,7 +287,10 @@ public class Follower : MonoBehaviour
 
         while (true)
         {
+
             yield return null;
+            if (_player == null)
+                break;
             transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, 10f * Time.deltaTime);
             if (IsGrounded()) break;
         }
@@ -389,9 +397,18 @@ public class Follower : MonoBehaviour
     {
         if (other.CompareTag("Trap"))
         {
-            _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+            StopAllCoroutines();
+            if (_player != null)
+                _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+            // 파티클 뿌리기
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/ChickDestroyedParticle");
+            Instantiate(prefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
+
+
+
 }
 
 

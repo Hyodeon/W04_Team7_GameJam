@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 /// <summary>
 /// <para>플레이어의 정보 저장</para>
@@ -70,18 +71,25 @@ public class PlayerBase : MonoBehaviour
             Follower foComp = follower.GetComponent<Follower>();
 
             yield return new WaitForSeconds(distance / foComp.MoveSpeed);
+            if (follower.gameObject != null)
+            {
+                foComp.TriggerState(Follower.State.Jump);
 
-            foComp.TriggerState(Follower.State.Jump);
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.CompareTag("Trap"))
-        //{
-
-        //}
+        if (other.CompareTag("Trap"))
+        {
+            // 파티클 뿌리기
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
+            Instantiate(prefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
+ 
 }
 
 
