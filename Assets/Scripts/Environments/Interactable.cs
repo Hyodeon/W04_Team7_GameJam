@@ -16,7 +16,7 @@ public class Interactable : BaseBehaviour
 
     [Header("Interactable")]
     [SerializeField] private Transform _playerTrs;
-    [SerializeField] private float _distance;
+    [SerializeField] private float _distance = 7;
 
     protected bool _isActive;
     protected override void Awake()
