@@ -39,7 +39,7 @@ public class NoNavFollow : MonoBehaviour
     {
         Vector3 destination = FollowObject.transform.position;
         Vector3 distance = destination - transform.position;
-        if(distance.magnitude > 2f)
+        if(distance.magnitude > 4f)
             transform.position = Vector3.MoveTowards(transform.position, destination, 5f * Time.deltaTime);
     }
 
