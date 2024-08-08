@@ -34,6 +34,8 @@ public class Follower : MonoBehaviour
 
     #region 지역 변수
 
+
+    [SerializeField] private float _trackDistance;
     // 상태 저장
     private State _currentState;
     private State _prevState;
@@ -234,7 +236,7 @@ public class Follower : MonoBehaviour
 
         _target = _player.GetComponent<PlayerBase>().FollowPoint;
 
-        if ((transform.position - _player.transform.position).magnitude >= 50)
+        if (Vector3.Distance(transform.position, _player.transform.position) >= _trackDistance)
         {
             Debug.Log("Delete");
             _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);

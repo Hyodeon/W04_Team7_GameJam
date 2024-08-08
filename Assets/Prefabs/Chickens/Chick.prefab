@@ -352,6 +352,7 @@ MonoBehaviour:
   attackForce: 20
   _feetOffset: {x: 0, y: -0.9, z: 0}
   _animator: {fileID: 2692562716100553496}
+  _trackDistance: 30
 --- !u!1 &7584737310169783726
 GameObject:
   m_ObjectHideFlags: 0
