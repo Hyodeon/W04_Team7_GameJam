@@ -238,7 +238,6 @@ public class Follower : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _player.transform.position) >= _trackDistance)
         {
-            Debug.Log("Delete");
             _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
             TriggerState(State.Idle);
         }
@@ -303,7 +302,6 @@ public class Follower : MonoBehaviour
 
     public void TriggerState(State st)
     {
-        Debug.Log($"State To {st}");
 
         _animator.SetInteger(AnimationSettings.Walk, 0);
 
@@ -315,8 +313,6 @@ public class Follower : MonoBehaviour
 
     IEnumerator AttackTarget()
     {
-        Debug.Log("공격!");
-
         _isAttack = true;
         Vector3 distance = attackTarget.transform.position - transform.position;
 
