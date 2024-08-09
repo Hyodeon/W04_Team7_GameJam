@@ -23,11 +23,11 @@ public class TrapDoorDemo : MonoBehaviour {
         //play open animation;
         TrapDoorAnim.SetTrigger("open");
         //wait 2 seconds;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2.2f);
         //play close animation;
         TrapDoorAnim.SetTrigger("close");
         //wait 2 seconds;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1.6f);
         //Do it again;
         StartCoroutine(OpenCloseTrap());
 
