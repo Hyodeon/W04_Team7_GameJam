@@ -6,6 +6,8 @@ public class Door : Interactable
 {
     public override void Interact()
     {
+        if (!_isActive)
+            return;
         if (GameSceneManager.Instance.GetCagesCount() == 0)
         {
             if (GameSceneManager.Instance.Player.ChickCount == 0)
