@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 152137290}
   - component: {fileID: 152137289}
   - component: {fileID: 152137288}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,6 +725,7 @@ PrefabInstance:
     - {fileID: 1422005016575352488, guid: 1360da2bbf077f7448eee2f75079bac0, type: 3}
     - {fileID: 5661614851908461409, guid: 1360da2bbf077f7448eee2f75079bac0, type: 3}
     - {fileID: 4702991367923704434, guid: 1360da2bbf077f7448eee2f75079bac0, type: 3}
+    - {fileID: 8360636993216890686, guid: 1360da2bbf077f7448eee2f75079bac0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5705830712065967424, guid: 1360da2bbf077f7448eee2f75079bac0, type: 3}
       insertIndex: -1
@@ -3959,6 +3960,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3822226120313513181, guid: 5ff517fda77154b4ab9782d746441e79, type: 3}
+      propertyPath: _turnSpeed
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 5360160872019690725, guid: 5ff517fda77154b4ab9782d746441e79, type: 3}
       propertyPath: m_Name
       value: PlayerChicken
@@ -4727,7 +4732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1245515261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9246,7 +9251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1608.6182, y: -48.048767}
+  m_AnchoredPosition: {x: 1608.6182, y: -48.04883}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2396060474931432491
