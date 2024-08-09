@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -35,6 +34,8 @@ public class Follower : MonoBehaviour
 
     #region 지역 변수
 
+
+    [SerializeField] private float _trackDistance;
     // 상태 저장
     private State _currentState;
     private State _prevState;
@@ -147,6 +148,8 @@ public class Follower : MonoBehaviour
 
     private void Idle(bool isTransition)
     {
+        if (_player == null)
+            return;
 
         Vector3 distVector = _player.transform.position - transform.position;
 
@@ -220,6 +223,9 @@ public class Follower : MonoBehaviour
 
     private void Follow(bool isTransition)
     {
+
+        if (_player == null)
+            return;
         if (isTransition)
         {
             _speed = 8f;
@@ -230,9 +236,8 @@ public class Follower : MonoBehaviour
 
         _target = _player.GetComponent<PlayerBase>().FollowPoint;
 
-        if ((transform.position - _player.transform.position).magnitude >= 50)
+        if (Vector3.Distance(transform.position, _player.transform.position) >= _trackDistance)
         {
-            Debug.Log("Delete");
             _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
             TriggerState(State.Idle);
         }
@@ -282,7 +287,10 @@ public class Follower : MonoBehaviour
 
         while (true)
         {
+
             yield return null;
+            if (_player == null)
+                break;
             transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, 10f * Time.deltaTime);
             if (IsGrounded()) break;
         }
@@ -294,7 +302,6 @@ public class Follower : MonoBehaviour
 
     public void TriggerState(State st)
     {
-        Debug.Log($"State To {st}");
 
         _animator.SetInteger(AnimationSettings.Walk, 0);
 
@@ -306,8 +313,6 @@ public class Follower : MonoBehaviour
 
     IEnumerator AttackTarget()
     {
-        Debug.Log("공격!");
-
         _isAttack = true;
         Vector3 distance = attackTarget.transform.position - transform.position;
 
@@ -389,9 +394,18 @@ public class Follower : MonoBehaviour
     {
         if (other.CompareTag("Trap"))
         {
-            _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+            StopAllCoroutines();
+            if (_player != null)
+                _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+            // 파티클 뿌리기
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/ChickDestroyedParticle");
+            Instantiate(prefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
+
+
+
 }
 
 

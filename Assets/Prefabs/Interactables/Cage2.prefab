@@ -115,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3367570072963161457}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -144,3 +144,6 @@ MonoBehaviour:
   _offSet: {x: 0, y: 1, z: 0}
   _playerTrs: {fileID: 0}
   _distance: 7.5
+  _chick: {fileID: 0}
+  _maxChickenCount: 0
+  _minChickenCount: 0

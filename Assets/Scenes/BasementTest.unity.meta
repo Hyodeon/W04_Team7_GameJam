@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/DownloadAssets/Fantasy Wooden GUI  Free.meta
+guid: 0f215867f57536c42b52a8ccfd465494
+folderAsset: yes
+========
 guid: 86768310fa8bf6845a9ecc11eaa26cb4
+>>>>>>>> origin/MergeBranch:Assets/Scenes/BasementTest.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
