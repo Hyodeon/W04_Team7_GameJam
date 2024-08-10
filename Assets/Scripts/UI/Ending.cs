@@ -27,11 +27,9 @@ public class Ending : MonoBehaviour
     [SerializeField] private Button _homeButton;
     [SerializeField] private GameObject _resultGob;
     [SerializeField] private GameObject _endGob;
-<<<<<<< Updated upstream
-=======
+
     [SerializeField] private float _delayTime = 1f;
-    
->>>>>>> Stashed changes
+    private bool _isEnded = false;
     private void Awake()
     {
         if (Instance != null)
@@ -53,22 +51,26 @@ public class Ending : MonoBehaviour
     }
     public void ShowEnding(int num)
     {
-        if (_gameEndingImg == null) return;
-        Time.timeScale = 0;
-
+        if (_gameEndingImg == null || _isEnded) return;
+        _isEnded = true;
         _gameEndingImg.sprite = _endingImages[num];
         SaveEnding(num);
         StartCoroutine(FadeEffect());
     }
 
+    private void ShowEndingDelay(int num)
+    {
+
+    }
+
     private void GoHome()
     {
         SceneManager.LoadScene("TitleScene");
-        Time.timeScale = 1;
 
     }
     private IEnumerator FadeEffect()
     {
+        yield return new WaitForSecondsRealtime(_delayTime);
         float time = 0;
         Color targetColor = new Color(0, 0, 0, 1);
         Color curColor = _fadeImage.color;
