@@ -25,7 +25,13 @@ public class Ending : MonoBehaviour
 
     [SerializeField] private float _fadeTime = 1;
     [SerializeField] private Button _homeButton;
+    [SerializeField] private GameObject _resultGob;
     [SerializeField] private GameObject _endGob;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] private float _delayTime = 1f;
+    
+>>>>>>> Stashed changes
     private void Awake()
     {
         if (Instance != null)
@@ -74,9 +80,8 @@ public class Ending : MonoBehaviour
         }
         _fadeImage.color = targetColor;
         yield return new WaitForSecondsRealtime(1f);
-        _endGob.SetActive(true);
-
-
+        _resultGob.SetActive(true);
+        //_endGob.SetActive(true);
     }
 
     public void ShowEndingList()
@@ -101,6 +106,12 @@ public class Ending : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ShowEnd()
+    {
+        _resultGob.SetActive(false);
+        _endGob.SetActive(true);
     }
 
 
