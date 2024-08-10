@@ -26,6 +26,7 @@ public class Ending : MonoBehaviour
     [SerializeField] private float _fadeTime = 1;
     [SerializeField] private Button _homeButton;
     [SerializeField] private GameObject _endGob;
+    [SerializeField] private float _delayTime = 1f;
     private void Awake()
     {
         if (Instance != null)
@@ -55,6 +56,11 @@ public class Ending : MonoBehaviour
         StartCoroutine(FadeEffect());
     }
 
+    private void ShowEndingDelay(int num)
+    {
+
+    }
+
     private void GoHome()
     {
         SceneManager.LoadScene("TitleScene");
@@ -63,6 +69,7 @@ public class Ending : MonoBehaviour
     }
     private IEnumerator FadeEffect()
     {
+        yield return new WaitForSecondsRealtime(_delayTime);
         float time = 0;
         Color targetColor = new Color(0, 0, 0, 1);
         Color curColor = _fadeImage.color;
