@@ -29,6 +29,9 @@ public class Ending : MonoBehaviour
     [SerializeField] private GameObject _endGob;
 
     [SerializeField] private float _delayTime = 1f;
+
+    private int _chickCount{get; set;}
+    private int _cageCount{get; set;}
     private bool _isEnded = false;
     private void Awake()
     {
@@ -125,6 +128,19 @@ public class Ending : MonoBehaviour
         }
     }
 
+    public void setResultCount(int count, int cageCount)
+    {
+        _chickCount = count;
+        _cageCount = cageCount;
+    }
+    public int GetChickCount()
+    {
+        return _chickCount;
+    }
+    public int GetCageCount()
+    {
+        return _cageCount;
+    }
     // Test Function
     public void DataResetButton()
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// <para>ÇÃ·¹ÀÌ¾îÀÇ Á¤º¸ ÀúÀå</para>
-/// <para>ÇÃ·¹ÀÌ¾î Á¤º¸¸¦ ¹ÙÅÁÀ¸·Î º´¾Æ¸®µé ¹èÄ¡</para>
-/// <para>Follower °ü¸®</para>
+/// <para>ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</para>
+/// <para>ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡</para>
+/// <para>Follower ï¿½ï¿½ï¿½ï¿½</para>
 /// </summary>
 public class PlayerBase : MonoBehaviour
 {
@@ -80,10 +80,11 @@ public class PlayerBase : MonoBehaviour
     {
         if (other.CompareTag("Trap"))
         {
-            // ÆÄÆ¼Å¬ »Ñ¸®±â
+            // ï¿½ï¿½Æ¼Å¬ ï¿½Ñ¸ï¿½ï¿½ï¿½
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
             Instantiate(prefab, transform.position, Quaternion.identity);
             Ending.Instance.ShowEnding((int)EEndingList.Death);
+            Ending.Instance.setResultCount(ChickCount, GameSceneManager.Instance.CagesCount);
             Destroy(gameObject);
         }
     }
@@ -97,7 +98,7 @@ public class PlayerBase : MonoBehaviour
 //{
 //    radius = Mathf.Sqrt(minDistance * numberOfPoints * 0.5f);
 //    radius *= 1.2f;
-//    Debug.Log($"Á¡ {numberOfPoints}¿¡ ´ëÇÑ ¹Ðµµ {minDistance}ÀÇ ¹ÝÁö¸§Àº {radius} ÀÔ´Ï´Ù!");
+//    Debug.Log($"ï¿½ï¿½ {numberOfPoints}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ðµï¿½ {minDistance}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ {radius} ï¿½Ô´Ï´ï¿½!");
 //}
 
 //void SpawnPointsInCircle(int count)
@@ -117,7 +118,7 @@ public class PlayerBase : MonoBehaviour
 //        attempts++;
 //    }
 
-//    Debug.Log($"½ÇÁ¦ »ý¼ºµÈ Á¡ °³¼ö : {points.Count}");
+//    Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : {points.Count}");
 //}
 
 
@@ -149,7 +150,7 @@ public class PlayerBase : MonoBehaviour
 //    Gizmos.color = Color.red;
 //    foreach (Vector2 point in points)
 //    {
-//        Gizmos.DrawSphere(point, 0.7f); // Á¡µéÀÇ À§Ä¡¸¦ ÀÛÀº ±¸·Î Ç¥½Ã
+//        Gizmos.DrawSphere(point, 0.7f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 //    }
 //}
 

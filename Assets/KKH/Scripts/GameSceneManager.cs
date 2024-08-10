@@ -12,6 +12,7 @@ public class GameSceneManager : BaseBehaviour
     public int CagesCount = 0;
     public float CurTime = 0;
     public float TargetTime = 90;
+    public int _chickCount;
     [SerializeField] private TextMeshProUGUI _cageCountText;
     protected override void Initialize()
     {

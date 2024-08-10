@@ -4055,9 +4055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76307443451c0714199a736a50c44c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  result: {fileID: 6805232676055523459}
-  Chickens: []
+  _player: {fileID: 0}
+  _result: {fileID: 0}
+  _chickens: []
 --- !u!1 &7211888872616988979
 GameObject:
   m_ObjectHideFlags: 0
