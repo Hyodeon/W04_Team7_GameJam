@@ -22,7 +22,7 @@ public class PlayerMovement : BaseBehaviour
     [Header("Particles")]
     [SerializeField] private GameObject _movementParticle;
 
-        // 레이어 마스크
+    // 레이어 마스크
     private LayerMask _groundLayer;
 
     protected override void Initialize()
@@ -87,9 +87,9 @@ public class PlayerMovement : BaseBehaviour
 
     private LayerMask GetCombinedLayerMask()
     {
-        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject"));
+        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject") | (1 << LayerMask.NameToLayer("PlayerInteractable")));
     }
-    
+
 
     private bool IsGrounded()
     {

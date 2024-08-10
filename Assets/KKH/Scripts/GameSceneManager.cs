@@ -12,7 +12,7 @@ public class GameSceneManager : BaseBehaviour
     public int CagesCount = 0;
     public float CurTime = 0;
     public float TargetTime = 90;
-
+    [SerializeField] private TextMeshProUGUI _cageCountText;
     protected override void Initialize()
     {
         base.Initialize();
@@ -23,6 +23,10 @@ public class GameSceneManager : BaseBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        CagesCount = GetCagesCount();
+    }
     public int GetCagesCount()
     {
         return FindObjectsOfType<Cage>().Length;
@@ -33,6 +37,7 @@ public class GameSceneManager : BaseBehaviour
         CurTime += Time.deltaTime;
         ChickText.text = "X " + Player.ChickCount.ToString();
         TimeSlider.value = CurTime / TargetTime;
+        _cageCountText.text = "X " + CagesCount.ToString();
         if (CurTime >= TargetTime)
         {
             EndGame();

@@ -14,7 +14,7 @@ public class Cage : Interactable
     protected override void Initialize()
     {
         base.Initialize();
-        _count = Random.Range(_minChickenCount, _maxChickenCount+1);
+        _count = Random.Range(_minChickenCount, _maxChickenCount + 1);
     }
 
 
@@ -26,6 +26,7 @@ public class Cage : Interactable
         }
         GameObject go = Instantiate(_destroyedParticle, transform.position + _offSet, Quaternion.identity);
         go.transform.localScale = transform.localScale * _scaleRatio;
+        GameSceneManager.Instance.CagesCount--;
         Destroy(this.gameObject);
     }
 
