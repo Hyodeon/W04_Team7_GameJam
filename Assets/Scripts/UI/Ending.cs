@@ -58,7 +58,7 @@ public class Ending : MonoBehaviour
         _isEnded = true;
         _gameEndingImg.sprite = _endingImages[num];
         SaveEnding(num);
-        StartCoroutine(FadeEffect());
+        StartCoroutine(FadeEffect(num));
     }
 
     private void ShowEndingDelay(int num)
@@ -71,7 +71,7 @@ public class Ending : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
 
     }
-    private IEnumerator FadeEffect()
+    private IEnumerator FadeEffect(int num)
     {
         yield return new WaitForSecondsRealtime(_delayTime);
         float time = 0;
@@ -85,8 +85,15 @@ public class Ending : MonoBehaviour
         }
         _fadeImage.color = targetColor;
         yield return new WaitForSecondsRealtime(1f);
-        _resultGob.SetActive(true);
-        //_endGob.SetActive(true);
+        if(num == 2 || num == 3)
+        {
+            ShowEnd();
+            _endGob.SetActive(true);
+        }
+        else
+        {
+            _resultGob.SetActive(true);
+        }
     }
 
     public void ShowEndingList()

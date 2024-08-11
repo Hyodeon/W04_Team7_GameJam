@@ -84,7 +84,6 @@ public class PlayerBase : MonoBehaviour
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
             Instantiate(prefab, transform.position, Quaternion.identity);
             Ending.Instance.ShowEnding((int)EEndingList.Death);
-            Ending.Instance.setResultCount(ChickCount, GameSceneManager.Instance.CagesCount);
             Destroy(gameObject);
         }
     }

@@ -8,6 +8,7 @@ public class Door : Interactable
     {
         if (!_isActive)
             return;
+        Ending.Instance.setResultCount(GameSceneManager.Instance.Player.ChickCount, GameSceneManager.Instance.CagesCount);
         if (GameSceneManager.Instance.GetCagesCount() == 0)
         {
             if (GameSceneManager.Instance.Player.ChickCount == 0)
