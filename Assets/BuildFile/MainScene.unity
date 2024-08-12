@@ -11704,7 +11704,7 @@ MonoBehaviour:
   TimeSlider: {fileID: 1377192711}
   CagesCount: 0
   CurTime: 0
-  TargetTime: 300
+  TargetTime: 120
   _chickCount: 0
   _cageCountText: {fileID: 1734724426}
 --- !u!114 &1957945650

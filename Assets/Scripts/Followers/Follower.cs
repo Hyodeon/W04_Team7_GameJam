@@ -158,6 +158,11 @@ public class Follower : MonoBehaviour
             _player.GetComponent<PlayerBase>().AddFollower(gameObject);
             TriggerState(State.Follow);
         }
+        else
+        {
+            if (_player != null)
+                _player.GetComponent<PlayerBase>().DeleteObejctFromList(gameObject);
+        }
     }
 
     private void Patrol(bool isTransition)
@@ -259,10 +264,11 @@ public class Follower : MonoBehaviour
             _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
 
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
-
+            _player.GetComponent<PlayerBase>().AddFollower(this.gameObject);
         }
         else
         {
+            
             _animator.SetInteger(AnimationSettings.Walk, 0);
         }
 

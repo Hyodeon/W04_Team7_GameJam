@@ -33,13 +33,23 @@ public class PlayerBase : MonoBehaviour
     public void AddFollower(GameObject go)
     {
         _followerList.Add(go);
-        _followCamera.AddFollower();
+        if (_followerList.Contains(go))
+        {
+
+        }
+        else
+        {
+            _followCamera.AddFollower();
+        }
     }
 
     public void DeleteObejctFromList(GameObject go)
     {
-        _followerList.Remove(go);
-        _followCamera.DeleteFollower();
+        if (_followerList.Contains(go))
+        {
+            _followerList.Remove(go);
+            _followCamera.DeleteFollower();
+        }
     }
 
     public void RefreshFollowPoint()
