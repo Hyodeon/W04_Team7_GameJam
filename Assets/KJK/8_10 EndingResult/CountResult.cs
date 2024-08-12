@@ -24,8 +24,9 @@ public class CountResult : MonoBehaviour
         _chickCount = Ending.Instance.GetChickCount();
         _cageCount = Ending.Instance.GetCageCount();
         Debug.Log(_chickCount);
+
         StartCoroutine(ShowResult());
-        
+
     }
 
     IEnumerator ShowResult()
@@ -36,8 +37,8 @@ public class CountResult : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         yield return new WaitForSeconds(1f);
-        Debug.Log(11-_cageCount);
-        for(int i = _chickCount; i < (11-_cageCount)*5; i++)
+        Debug.Log(11 - _cageCount);
+        for (int i = _chickCount; i < (11 - _cageCount) * 5; i++)
         {
             _chickens[i].SetActive(true);
             _chickens[i].GetComponent<Image>().color = new Color(1, 0, 0, 1);

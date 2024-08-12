@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameSceneManager : BaseBehaviour
@@ -35,6 +36,10 @@ public class GameSceneManager : BaseBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         CurTime += Time.deltaTime;
         ChickText.text = "X " + Player.ChickCount.ToString();
         TimeSlider.value = CurTime / TargetTime;

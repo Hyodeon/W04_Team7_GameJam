@@ -85,14 +85,13 @@ public class Ending : MonoBehaviour
         }
         _fadeImage.color = targetColor;
         yield return new WaitForSecondsRealtime(1f);
-        if(num == 2 || num == 3)
+        if(_chickCount > 0)
         {
-            ShowEnd();
-            _endGob.SetActive(true);
+            _resultGob.SetActive(true);
         }
         else
         {
-            _resultGob.SetActive(true);
+            ShowEnd();
         }
     }
 
