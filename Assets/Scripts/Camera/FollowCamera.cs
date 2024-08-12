@@ -42,13 +42,13 @@ public class FollowCamera : MonoBehaviour
     public void AddFollower()
     {
         _count++;
-        CameraWeight = 1 + (float)_count / 100f;
+        //CameraWeight = 1 + (float)_count / 100f;
     }
 
     public void DeleteFollower()
     {
         _count--;
-        CameraWeight = 1 + (float)_count / 100f;
+        //CameraWeight = 1 + (float)_count / 100f;
     }
 
 }

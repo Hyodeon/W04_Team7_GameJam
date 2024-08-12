@@ -44,6 +44,14 @@ public class Interactable : BaseBehaviour
             return;
         }
 
+        if (_isActive)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Interact();
+            }
+        }
+
         CheckDistance();
     }
 

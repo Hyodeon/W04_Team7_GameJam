@@ -15,6 +15,7 @@ public class GameSceneManager : BaseBehaviour
     public float TargetTime = 90;
     public int _chickCount;
     [SerializeField] private TextMeshProUGUI _cageCountText;
+    [SerializeField] private GameObject _cutScene;
     protected override void Initialize()
     {
         base.Initialize();
@@ -36,7 +37,7 @@ public class GameSceneManager : BaseBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && _cutScene == null)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
