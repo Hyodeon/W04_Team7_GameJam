@@ -9,6 +9,7 @@ public class CountResult : MonoBehaviour
     [SerializeField] private PlayerBase _player;
     [SerializeField] private GameObject _result;
     [SerializeField] private GameObject[] _chickens;
+    [SerializeField] private GameObject _nextButton;
     private int _chickCount;
     private int _cageCount;
     void Awake()
@@ -18,6 +19,8 @@ public class CountResult : MonoBehaviour
         {
             _chickens[i] = _result.transform.GetChild(i).gameObject;
         }
+        _nextButton = _result.transform.GetChild(_result.transform.childCount - 1).gameObject;
+        _nextButton.SetActive(false);
     }
     void OnEnable()
     {
@@ -34,15 +37,16 @@ public class CountResult : MonoBehaviour
         for (int i = 0; i < _chickCount; i++)
         {
             _chickens[i].SetActive(true);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log(11 - _cageCount);
         for (int i = _chickCount; i < (11 - _cageCount) * 5; i++)
         {
             _chickens[i].SetActive(true);
             _chickens[i].GetComponent<Image>().color = new Color(1, 0, 0, 1);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
+        _nextButton.SetActive(true);
     }
 }
