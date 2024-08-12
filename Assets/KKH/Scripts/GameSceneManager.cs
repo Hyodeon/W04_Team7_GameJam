@@ -56,6 +56,11 @@ public class GameSceneManager : BaseBehaviour
         Ending.Instance.ShowEnding((int)EEndingList.Dinner);
     }
 
+    public void RetryGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 
 
 
