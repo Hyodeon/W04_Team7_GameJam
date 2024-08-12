@@ -249,14 +249,21 @@ public class Follower : MonoBehaviour
         playerVector.y = 0f;
         transform.rotation = Quaternion.LookRotation(playerVector);
 
-        if (_rb.velocity.magnitude < 2f)
-        {
-            _animator.SetInteger(AnimationSettings.Walk, 0);
-        }
+        //if (_rb.velocity.magnitude < 2f)
+        //{
+        //    _animator.SetInteger(AnimationSettings.Walk, 0);
+        //}
 
         if (directionVector.magnitude > 1f)
         {
+            _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
+
+        }
+        else
+        {
+            _animator.SetInteger(AnimationSettings.Walk, 0);
         }
 
     }

@@ -5526,7 +5526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3822226120313513181, guid: 5ff517fda77154b4ab9782d746441e79, type: 3}
       propertyPath: _jumpPower
-      value: 16
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 3822226120313513181, guid: 5ff517fda77154b4ab9782d746441e79, type: 3}
       propertyPath: _turnSpeed
@@ -5540,6 +5540,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 2098770806}
+    - target: {fileID: 8157459600780764454, guid: 5ff517fda77154b4ab9782d746441e79, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8157459600780764454, guid: 5ff517fda77154b4ab9782d746441e79, type: 3}
       propertyPath: m_UseGravity
       value: 1

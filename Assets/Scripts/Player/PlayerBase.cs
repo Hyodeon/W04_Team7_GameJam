@@ -44,7 +44,7 @@ public class PlayerBase : MonoBehaviour
 
     public void RefreshFollowPoint()
     {
-        float radius = Mathf.Sqrt(1.2f * 30 * 0.5f);
+        float radius = Mathf.Sqrt(1.2f * 10 * 0.5f);
 
         _followPoint = transform.position + (-transform.forward) * radius;
     }
