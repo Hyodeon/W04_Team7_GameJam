@@ -137,7 +137,7 @@ public class Follower : MonoBehaviour
 
     #endregion
 
-    private void FixedUpdate()
+    private void Update()
     {
         // 상태 핸들러에 등록된 액션 수행
         if (_stateHandler.TryGetValue(_currentState, out var action))
