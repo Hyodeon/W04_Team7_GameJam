@@ -87,7 +87,7 @@ public class PlayerMovement : BaseBehaviour
 
     private LayerMask GetCombinedLayerMask()
     {
-        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject") | (1 << LayerMask.NameToLayer("PlayerInteractable")));
+        return (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("FixedObject") | (1 << LayerMask.NameToLayer("Cage")));
     }
 
 
