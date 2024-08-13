@@ -88,12 +88,18 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Trap"))
+        if (other.CompareTag("Spear"))
         {
-            // ��ƼŬ �Ѹ���
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
             Instantiate(prefab, transform.position, Quaternion.identity);
-            Ending.Instance.ShowEnding((int)EEndingList.Death);
+            Ending.Instance.ShowEnding((int)EEndingList.Skewers);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Pot"))
+        {
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Particles/PlayerDestroyedParticle");
+            Instantiate(prefab, transform.position, Quaternion.identity);
+            Ending.Instance.ShowEnding((int)EEndingList.Pot);
             Destroy(gameObject);
         }
     }

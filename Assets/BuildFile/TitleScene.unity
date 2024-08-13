@@ -404,7 +404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Psycho
+  m_text: Chicken Skewers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Victory  in  Chaos
+  m_text: A  New  Beginning
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A  New  Beginning
+  m_text: Hero
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Farmer's  Dinner
+  m_text: Roast Chicken
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2200,12 +2200,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _endingImages:
-  - {fileID: 21300000, guid: e362183a21f214242a962d11a55eb690, type: 3}
-  - {fileID: 21300000, guid: 0648f5053476e1a49978ab30d655d2db, type: 3}
+  - {fileID: 21300000, guid: 9f3ba39901b996444a65b42e131e0a29, type: 3}
+  - {fileID: 21300000, guid: a31f0227936d61f48b0f371068b0c869, type: 3}
   - {fileID: 21300000, guid: c6c6384de42b47b4d918d1b96d2380dc, type: 3}
-  - {fileID: 21300000, guid: 2bd7bd6b2313735408af88b0cbd07d55, type: 3}
-  - {fileID: 21300000, guid: f0c60e1be8b15f846ad3f2fe32ae7fe7, type: 3}
+  - {fileID: 21300000, guid: 0648f5053476e1a49978ab30d655d2db, type: 3}
   - {fileID: 21300000, guid: 8b81ad552acc4204cb326b9c4bd77b46, type: 3}
+  - {fileID: 21300000, guid: fd8a85dc37d4ad84cb14f4a2ea45547b, type: 3}
   _endingList:
   - {fileID: 1290726331}
   - {fileID: 1026384811}
@@ -2224,7 +2224,9 @@ MonoBehaviour:
   _fadeImage: {fileID: 0}
   _fadeTime: 1
   _homeButton: {fileID: 0}
+  _resultGob: {fileID: 0}
   _endGob: {fileID: 0}
+  _delayTime: 1
 --- !u!1 &709731954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,7 +2284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loneliness
+  m_text: Chicken Soup
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3034,7 +3036,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Flattened  Dreams
+  m_text: Lonely
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

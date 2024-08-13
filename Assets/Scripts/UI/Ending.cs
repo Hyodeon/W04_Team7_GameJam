@@ -157,12 +157,10 @@ public class Ending : MonoBehaviour
 public enum EEndingList
 {
 
-    Psycho = 0,
-    Sad = 1,
+    Skewers = 0,
+    Pot = 1,
     Dinner = 2,
-    Death = 3,
-    Mass = 4,
-    Normal = 5
-
-
+    Solo = 3,
+    Normal = 4,
+    Hero = 5,
 }

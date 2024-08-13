@@ -11,20 +11,24 @@ public class Door : Interactable
         Ending.Instance.setResultCount(GameSceneManager.Instance.Player.ChickCount, GameSceneManager.Instance.CagesCount);
         if (GameSceneManager.Instance.GetCagesCount() == 0)
         {
-            if (GameSceneManager.Instance.Player.ChickCount == 0)
+            if (GameSceneManager.Instance.Player.ChickCount >= 55)
             {
-                Ending.Instance.ShowEnding((int)EEndingList.Psycho);
+                Ending.Instance.ShowEnding((int)EEndingList.Hero);
+            }
+            else if (GameSceneManager.Instance.Player.ChickCount > 0)
+            {
+                Ending.Instance.ShowEnding((int)EEndingList.Normal);
             }
             else
             {
-                Ending.Instance.ShowEnding((int)EEndingList.Mass);
+                Ending.Instance.ShowEnding((int)EEndingList.Solo);
             }
         }
         else
         {
             if (GameSceneManager.Instance.Player.ChickCount == 0)
             {
-                Ending.Instance.ShowEnding((int)EEndingList.Sad);
+                Ending.Instance.ShowEnding((int)EEndingList.Solo);
             }
             else
             {

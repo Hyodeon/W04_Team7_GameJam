@@ -4246,7 +4246,7 @@ GameObject:
   - component: {fileID: 526905418}
   m_Layer: 0
   m_Name: SpikeTrap
-  m_TagString: Untagged
+  m_TagString: Spear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5523,6 +5523,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1617305704655785837, guid: ecac6b415c775ee449a206aae3d0275a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1753322374739888009, guid: ecac6b415c775ee449a206aae3d0275a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -5898,7 +5902,7 @@ GameObject:
   - component: {fileID: 877121613}
   m_Layer: 0
   m_Name: SwingTrap
-  m_TagString: Untagged
+  m_TagString: Spear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11712,7 +11716,7 @@ GameObject:
   - component: {fileID: 1747609079}
   m_Layer: 0
   m_Name: PotTrap
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11996,6 +12000,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872692936449907662, guid: 40681675b801434409879e63dc430df1, type: 3}
+      propertyPath: _endingImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f3ba39901b996444a65b42e131e0a29, type: 3}
+    - target: {fileID: 7872692936449907662, guid: 40681675b801434409879e63dc430df1, type: 3}
+      propertyPath: _endingImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a31f0227936d61f48b0f371068b0c869, type: 3}
+    - target: {fileID: 7872692936449907662, guid: 40681675b801434409879e63dc430df1, type: 3}
+      propertyPath: _endingImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: c6c6384de42b47b4d918d1b96d2380dc, type: 3}
+    - target: {fileID: 7872692936449907662, guid: 40681675b801434409879e63dc430df1, type: 3}
+      propertyPath: _endingImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0648f5053476e1a49978ab30d655d2db, type: 3}
+    - target: {fileID: 7872692936449907662, guid: 40681675b801434409879e63dc430df1, type: 3}
+      propertyPath: _endingImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b81ad552acc4204cb326b9c4bd77b46, type: 3}
+    - target: {fileID: 7872692936449907662, guid: 40681675b801434409879e63dc430df1, type: 3}
+      propertyPath: _endingImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: fd8a85dc37d4ad84cb14f4a2ea45547b, type: 3}
     - target: {fileID: 7972547907243577360, guid: 40681675b801434409879e63dc430df1, type: 3}
       propertyPath: m_IsActive
       value: 0

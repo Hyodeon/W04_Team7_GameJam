@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 285331236805195727}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Trap
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
